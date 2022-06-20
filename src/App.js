@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.scss'
+import Parent from './components/parent'
+import Notify from './components/notify'
+import { NotifyProvider } from './hooks/useNotify'
 
-function App() {
+/**
+ * I used @mui/material for notification component.
+ * If you want to use another component or your custom component,
+ * please costumize "Notify" component.
+ */
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <NotifyProvider>
+      <Parent />
+      <Notify />
+    </NotifyProvider>
+  )
 }
-
-export default App;
